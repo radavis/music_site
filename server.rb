@@ -22,18 +22,22 @@ helpers do
 end
 
 get '/' do
-  @songs = import_csv
+  songs = import_csv
   @albums = @songs.map { |song| "#{song['artist']} - #{song['album']}" }.uniq
   erb :albums
 end
 
 get '/:album' do
   @album = params['album']
-  binding.pry
-  @songs = import_csv
-  @album_songs = @songs.select{ |song| song['album'] == @album }
+  songs = import_csv
+
+  @album_songs = songs.select{ |song| song['album'] == @album }
   @artist = @album_songs[0]['artist']
   @year = @album_songs[0]['year']
   @genre = @album_songs[0]['genre']
+
+  last_fm_results = LastFM::Album.search(@album)
+  @cover_art = last_fm_results[0].image
+
   erb :album
 end
