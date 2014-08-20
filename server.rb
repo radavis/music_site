@@ -1,5 +1,7 @@
 require 'sinatra'
 require 'csv'
+require 'pry'
+require 'last_fm'
 
 MUSIC_DATA = 'songs.csv'
 
@@ -27,6 +29,7 @@ end
 
 get '/:album' do
   @album = params['album']
+  binding.pry
   @songs = import_csv
   @album_songs = @songs.select{ |song| song['album'] == @album }
   @artist = @album_songs[0]['artist']
