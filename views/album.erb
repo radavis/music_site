@@ -1,0 +1,12 @@
+<h1>Album: <%= @album %></h1>
+<h2>Artist: <%= @artist %></h2>
+<h3>Year: <%= @year %></h3>
+<h3>Genre: <%= @genre %></h3>
+<ol>
+  <% @album_songs.each do |song| %>
+    <li>
+      <%= song['title']%> -
+      <%= seconds_to_time(song['length'].to_i) %>
+    </li>
+  <% end %>
+</ol>

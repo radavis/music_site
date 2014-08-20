@@ -1,0 +1,11 @@
+<h1>Albums</h1>
+
+<ul>
+  <% @albums.each do |album| %>
+    <li>
+      <a href="/<%= album.split(' - ')[1] %>">
+        <%= album %>
+      </a>
+    </li>
+  <% end %>
+</ul>
