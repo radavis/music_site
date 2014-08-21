@@ -1,8 +1,9 @@
-<h1>Album: <%= @album %></h1>
-<h2>Artist: <%= @artist %></h2>
+<h3>Album: <%= @album %></h1>
+<h3>Artist: <%= @artist %></h2>
 <h3>Year: <%= @year %></h3>
 <h3>Genre: <%= @genre %></h3>
-<img src="<%= @cover_art %>"><br />
+
+<h3>Tracks:</h3>
 <ol>
   <% @album_songs.each do |song| %>
     <li>
@@ -11,3 +12,5 @@
     </li>
   <% end %>
 </ol>
+
+<a href="/">Home</a>

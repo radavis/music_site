@@ -17,7 +17,6 @@ files.each do |file|
   end
 end
 
-
 CSV.open("songs.csv", "w") do |csv|
   csv << %w(title artist album year track genre length)
   songs.each { |song| csv << song }

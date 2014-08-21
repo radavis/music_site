@@ -3,7 +3,7 @@
 <ul>
   <% @albums.each do |album| %>
     <li>
-      <a href="/<%= album.split(' - ')[1] %>">
+      <a href="/albums/<%= slugify(album.split(' - ')[1]) %>">
         <%= album %>
       </a>
     </li>
