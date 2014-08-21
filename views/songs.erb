@@ -23,7 +23,7 @@
       <%= song['artist'] %>
     </td>
     <td>
-      <%= song['album'] %>
+      <a href="/albums/<%= slugify(song['album']) %>"><%= song['album'] %></a>
     </td>
     <td>
       <%= song['year'] %>
