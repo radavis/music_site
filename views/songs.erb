@@ -1,6 +1,6 @@
 <h1>Songs</h1>
 
-<table>
+<table class="songs">
   <tr>
     <th>Track #</th>
     <th>Title</th>
@@ -37,6 +37,8 @@
   </tr>
   <% end %>
 </table>
+
+<br/>
 
 <% if @page > 1 %>
   <a href="/songs?page=<%= @page - 1%>">Previous</a> |

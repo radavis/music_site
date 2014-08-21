@@ -7,3 +7,7 @@ div.container {
   margin-left: 5%;
   margin-right: 5%;
 }
+
+table.songs {
+  width: 100%;
+}

@@ -3,6 +3,7 @@ require 'csv'
 require 'pry'
 
 MUSIC_DATA = 'songs.csv'
+RESULTS_PER_PAGE = 20
 
 def import_csv(filename=MUSIC_DATA)
   result = []
@@ -56,8 +57,8 @@ get '/songs' do
 
   # pagination!
   @page = (params['page'] || 1).to_i
-  start_index = 10 * (@page - 1)
-  end_index = 10 * (@page - 1) + 9
+  start_index = RESULTS_PER_PAGE * (@page - 1)
+  end_index = RESULTS_PER_PAGE * (@page - 1) + (RESULTS_PER_PAGE - 1)
   @songs = @songs[start_index..end_index]
 
   erb :songs
