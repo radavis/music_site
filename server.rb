@@ -2,7 +2,7 @@ require 'sinatra'
 require 'csv'
 require 'pry'
 
-MUSIC_DATA = 'songs.csv'
+MUSIC_DATA = 'songs_with_album_art.csv'
 RESULTS_PER_PAGE = 20
 
 def import_csv(filename=MUSIC_DATA)
@@ -48,6 +48,7 @@ get '/albums/:album' do
   @artist = @album_songs[0]['artist']
   @year = @album_songs[0]['year']
   @genre = @album_songs[0]['genre']
+  @image = @album_songs[0]['image']
 
   erb :album
 end
